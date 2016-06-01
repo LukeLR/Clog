@@ -1,6 +1,8 @@
 package eingabeausgabe;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class DeSerializer<A> {
@@ -17,7 +19,13 @@ public class DeSerializer<A> {
 	
 	public A readFromFile(Path path){
 		try{
-			
+			FileInputStream fileInputStream = new FileInputStream(path);
+			ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+			A result = (A) objectInputStream.readObject();
+			return result;
+		} catch (Exception ex){
+			ex.printStackTrace();
+			return null;
 		}
 	}
 }
