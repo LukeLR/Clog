@@ -54,7 +54,7 @@ public class Menue1 {
 		Ausgabe.print("Text: ");
 		text = new Text(Eingabe.naechsterString());
 		Ausgabe.printline();
-		Ausgabe.print("Geben Sie nun Schlagworte ein, und bestätigen Sie nach jeder einzelnen Eingabe mit Enter. Wenn Sie keine weiteren Schlagworte eingeben wollen, geben Sie das Schlagwort 'exit' ein.");
+		Ausgabe.printline("Geben Sie nun Schlagworte ein, und bestätigen Sie nach jeder einzelnen Eingabe mit Enter. Wenn Sie keine weiteren Schlagworte eingeben wollen, geben Sie das Schlagwort 'exit' ein.");
 		schlagworte = new Schlagworte();
 		Schlagwort schlagwort = new Schlagwort(Eingabe.naechsterString());
 		while (!schlagwort.equals(new Schlagwort("exit"))){
