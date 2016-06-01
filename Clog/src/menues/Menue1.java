@@ -28,7 +28,7 @@ public class Menue1 {
 		Titel titel;
 		Text text;
 		Schlagworte schlagworte;
-		Ausgabe.printline("Sie wollen einen neuen Eintrag erzeugen. Best√§tigen Sie jeweils mit Enter.");
+		Ausgabe.printline("Sie wollen einen neuen Eintrag erzeugen. Best‰tigen Sie jeweils mit Enter.");
 		Ausgabe.print("Vorname: ");
 		vorname = new Vorname(Eingabe.naechsterString());
 		Ausgabe.print("Nachname: ");
