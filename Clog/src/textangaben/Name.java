@@ -23,7 +23,9 @@ public class Name implements Serializable {
 	}
 
 	public void ausgeben(){
-		Ausgabe.printline(vorname + " " + nachname);
+		vorname.ausgeben();
+		Ausgabe.print(" ");
+		nachname.ausgeben();
 	}
 	
 	/*public int length(){
