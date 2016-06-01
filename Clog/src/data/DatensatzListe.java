@@ -16,13 +16,13 @@ public class DatensatzListe {
 		datensaetze.add(datensatz);
 	}
 	
-	public static void datensaetzeMitSchlagwortAusgeben(Schlagwort schlagwort){
+	public void datensaetzeMitSchlagwortAusgeben(Schlagwort schlagwort){
 		for (Datensatz datensatz:datensaetze){
 			datensatz.ausgebenWennEnthaeltSchlagwort(schlagwort);
 		}
 	}
 	
-	public static void ausgeben(){
+	public void ausgeben(){
 		Ausgabe.printline("Gebe alle Datensätze aus:");
 		for (Datensatz datensatz:datensaetze){
 			datensatz.ausgeben();
