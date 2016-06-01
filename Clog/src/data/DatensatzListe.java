@@ -6,15 +6,13 @@ import eingabeausgabe.Ausgabe;
 import textangaben.Schlagwort;
 
 public class DatensatzListe {
-	private static ArrayList<Datensatz> datensaetze = new ArrayList<Datensatz>();
+	private ArrayList<Datensatz> datensaetze;
 	
 	public DatensatzListe(){
 		datensaetze = new ArrayList<Datensatz>();
 	}
 	
-	public DatensatzListe(
-	
-	public static void datensatzHinzufuegen(Datensatz datensatz){
+	public void datensatzHinzufuegen(Datensatz datensatz){
 		datensaetze.add(datensatz);
 	}
 	
@@ -25,7 +23,7 @@ public class DatensatzListe {
 	}
 	
 	public static void ausgeben(){
-		Ausgabe.printline("Gebe alle DatensÃ¤tze aus:");
+		Ausgabe.printline("Gebe alle Datensätze aus:");
 		for (Datensatz datensatz:datensaetze){
 			datensatz.ausgeben();
 			Ausgabe.printline();
