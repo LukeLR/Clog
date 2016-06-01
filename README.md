@@ -16,6 +16,7 @@ The log entries can be printed by searching for specific tags, saved and read to
 
 ### Object Calisthenics
 The most important target for this project is to comply with Object Calisthenics, strict rules for object oriented programming. Not intended for productive usage, but as some kind of code golf. The rules are the following:
+
 1. One level of intendation per method
 2. Don't use the ELSE keyword
 3. Wrap all primitives and Strings
