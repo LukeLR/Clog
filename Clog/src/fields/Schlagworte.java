@@ -7,6 +7,10 @@ import eingabeausgabe.Ausgabe;
 import textangaben.Schlagwort;
 
 public class Schlagworte implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4790018529431558406L;
 	private ArrayList<Schlagwort> schlagworte;
 	
 	public Schlagworte(){

@@ -5,6 +5,10 @@ import java.io.Serializable;
 import eingabeausgabe.Ausgabe;
 
 public class StundeMinute implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8712337476061266723L;
 	private Stunde stunde;
 	private Minute minute;
 	

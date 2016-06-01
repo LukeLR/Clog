@@ -7,6 +7,10 @@ import textangaben.Text;
 import textangaben.Titel;
 
 public class TitelText implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6199467510837003268L;
 	private Titel titel;
 	private Text text;
 	

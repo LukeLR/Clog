@@ -5,6 +5,10 @@ import java.io.Serializable;
 import eingabeausgabe.Ausgabe;
 
 public class Name implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3440007920605732291L;
 	private Vorname vorname;
 	private Nachname nachname;
 	

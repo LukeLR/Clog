@@ -7,6 +7,10 @@ import eingabeausgabe.Ausgabe;
 import textangaben.Schlagwort;
 
 public class DatensatzListe implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6399311921918229908L;
 	private ArrayList<Datensatz> datensaetze;
 	
 	public DatensatzListe(){

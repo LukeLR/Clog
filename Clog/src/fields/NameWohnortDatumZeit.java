@@ -7,6 +7,10 @@ import textangaben.Vorname;
 import textangaben.Wohnort;
 
 public class NameWohnortDatumZeit implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 121958733146581230L;
 	private NameWohnort nameWohnort;
 	private DatumZeit datumZeit;
 	

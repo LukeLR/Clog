@@ -9,6 +9,10 @@ import textangaben.Vorname;
 import textangaben.Wohnort;
 
 public class NameWohnort implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 119015723719966835L;
 	private Name name;
 	private Wohnort wohnort;
 	

@@ -7,6 +7,10 @@ import datumzeit.Zeit;
 import eingabeausgabe.Ausgabe;
 
 public class DatumZeit implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4636768504617119646L;
 	private Datum datum;
 	private Zeit zeit;
 	

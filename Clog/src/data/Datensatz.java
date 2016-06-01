@@ -14,6 +14,10 @@ import textangaben.Vorname;
 import textangaben.Wohnort;
 
 public class Datensatz implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5534026146190909880L;
 	private NameWohnortDatumZeitTitelText nameWohnortDatumZeitTitelText;
 	private Schlagworte schlagworte;
 	
