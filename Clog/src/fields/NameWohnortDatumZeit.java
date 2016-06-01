@@ -1,10 +1,12 @@
 package fields;
 
+import java.io.Serializable;
+
 import textangaben.Nachname;
 import textangaben.Vorname;
 import textangaben.Wohnort;
 
-public class NameWohnortDatumZeit {
+public class NameWohnortDatumZeit implements Serializable {
 	private NameWohnort nameWohnort;
 	private DatumZeit datumZeit;
 	

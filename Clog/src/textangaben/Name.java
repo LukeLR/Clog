@@ -1,8 +1,10 @@
 package textangaben;
 
+import java.io.Serializable;
+
 import eingabeausgabe.Ausgabe;
 
-public class Name {
+public class Name implements Serializable {
 	private Vorname vorname;
 	private Nachname nachname;
 	
@@ -11,7 +13,7 @@ public class Name {
 		this.nachname = new Nachname(nachname);
 	}
 	
-	public Name(Vorname vorname2, Nachname nachname2) {
+	public Name(Vorname vorname, Nachname nachname) {
 		this.vorname = vorname;
 		this.nachname = nachname;
 	}

@@ -1,5 +1,7 @@
 package data;
 
+import java.io.Serializable;
+
 import eingabeausgabe.Ausgabe;
 import fields.DatumZeit;
 import fields.NameWohnortDatumZeitTitelText;
@@ -11,7 +13,7 @@ import textangaben.Titel;
 import textangaben.Vorname;
 import textangaben.Wohnort;
 
-public class Datensatz {
+public class Datensatz implements Serializable {
 	private NameWohnortDatumZeitTitelText nameWohnortDatumZeitTitelText;
 	private Schlagworte schlagworte;
 	

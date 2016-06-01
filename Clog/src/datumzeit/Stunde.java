@@ -1,8 +1,10 @@
 package datumzeit;
 
+import java.io.Serializable;
+
 import eingabeausgabe.Ausgabe;
 
-public class Stunde {
+public class Stunde implements Serializable {
 	private int stunde = 0;
 	
 	public Stunde(int stunde){

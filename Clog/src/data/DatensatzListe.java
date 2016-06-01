@@ -1,11 +1,12 @@
 package data;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import eingabeausgabe.Ausgabe;
 import textangaben.Schlagwort;
 
-public class DatensatzListe {
+public class DatensatzListe implements Serializable {
 	private ArrayList<Datensatz> datensaetze;
 	
 	public DatensatzListe(){

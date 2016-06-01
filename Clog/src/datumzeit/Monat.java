@@ -1,8 +1,10 @@
 package datumzeit;
 
+import java.io.Serializable;
+
 import eingabeausgabe.Ausgabe;
 
-public class Monat {
+public class Monat implements Serializable {
 	private int monat = 1;
 	
 	public Monat(int monat){

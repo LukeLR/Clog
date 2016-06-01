@@ -22,6 +22,7 @@ public class DeSerializer<A> {
 			FileInputStream fileInputStream = new FileInputStream(path);
 			ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 			A result = (A) objectInputStream.readObject();
+			objectInputStream.close();
 			return result;
 		} catch (Exception ex){
 			ex.printStackTrace();

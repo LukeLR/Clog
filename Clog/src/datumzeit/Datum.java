@@ -1,8 +1,10 @@
 package datumzeit;
 
+import java.io.Serializable;
+
 import eingabeausgabe.Ausgabe;
 
-public class Datum {
+public class Datum implements Serializable {
 	private Tag tag;
 	private MonatJahr monatJahr;
 	

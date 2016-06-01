@@ -1,8 +1,10 @@
 package textangaben;
 
+import java.io.Serializable;
+
 import eingabeausgabe.Ausgabe;
 
-public class Titel {
+public class Titel implements Serializable {
 	private String titel = "Default Titel";
 	
 	public Titel(String titel){

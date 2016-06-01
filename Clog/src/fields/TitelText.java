@@ -1,10 +1,12 @@
 package fields;
 
+import java.io.Serializable;
+
 import eingabeausgabe.Ausgabe;
 import textangaben.Text;
 import textangaben.Titel;
 
-public class TitelText {
+public class TitelText implements Serializable {
 	private Titel titel;
 	private Text text;
 	

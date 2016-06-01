@@ -1,11 +1,12 @@
 package fields;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import eingabeausgabe.Ausgabe;
 import textangaben.Schlagwort;
 
-public class Schlagworte {
+public class Schlagworte implements Serializable {
 	private ArrayList<Schlagwort> schlagworte;
 	
 	public Schlagworte(){

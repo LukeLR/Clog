@@ -1,8 +1,10 @@
 package textangaben;
 
+import java.io.Serializable;
+
 import eingabeausgabe.Ausgabe;
 
-public class Nachname {
+public class Nachname implements Serializable {
 	private String nachname = "Default Nachname";
 	
 	public Nachname(String nachname){

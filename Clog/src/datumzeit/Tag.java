@@ -1,8 +1,10 @@
 package datumzeit;
 
+import java.io.Serializable;
+
 import eingabeausgabe.Ausgabe;
 
-public class Tag {
+public class Tag implements Serializable {
 	private int tag = 1;
 	
 	public Tag(int tag){

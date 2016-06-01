@@ -1,8 +1,10 @@
 package textangaben;
 
+import java.io.Serializable;
+
 import eingabeausgabe.Ausgabe;
 
-public class Schlagwort {
+public class Schlagwort implements Serializable {
 	String schlagwort;
 	
 	public Schlagwort(String schlagwort){

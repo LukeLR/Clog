@@ -1,10 +1,12 @@
 package fields;
 
+import java.io.Serializable;
+
 import datumzeit.Datum;
 import datumzeit.Zeit;
 import eingabeausgabe.Ausgabe;
 
-public class DatumZeit {
+public class DatumZeit implements Serializable {
 	private Datum datum;
 	private Zeit zeit;
 	

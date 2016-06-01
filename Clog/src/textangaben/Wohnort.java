@@ -1,8 +1,10 @@
 package textangaben;
 
+import java.io.Serializable;
+
 import eingabeausgabe.Ausgabe;
 
-public class Wohnort {
+public class Wohnort implements Serializable {
 	private String wohnort = "Default Wohnort";
 	
 	public Wohnort(String wohnort){
