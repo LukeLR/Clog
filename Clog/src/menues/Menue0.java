@@ -2,7 +2,6 @@ package menues;
 
 import eingabeausgabe.Ausgabe;
 import eingabeausgabe.Eingabe;
-import main.Exitflag;
 
 public class Menue0 {
 	private static final String hauptmenue =
@@ -13,7 +12,7 @@ public class Menue0 {
 			"5) Programm beenden";
 	
 	public static void run(){
-		while(!Exitflag.exit()){
+		while(true){
 			menue();
 		}
 	}
