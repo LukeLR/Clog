@@ -12,6 +12,8 @@ public class DatensatzListe {
 		datensaetze = new ArrayList<Datensatz>();
 	}
 	
+	public DatensatzListe(
+	
 	public static void datensatzHinzufuegen(Datensatz datensatz){
 		datensaetze.add(datensatz);
 	}
