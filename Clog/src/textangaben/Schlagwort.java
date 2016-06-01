@@ -19,8 +19,8 @@ public class Schlagwort implements Serializable {
 		Ausgabe.print(schlagwort);
 	}
 	
-	public boolean equals(Schlagwort einSchlagwort){
-		String schlagwort2 = einSchlagwort.schlagwort;
+	public boolean equals(Object einSchlagwort){
+		String schlagwort2 = ((Schlagwort) einSchlagwort).schlagwort;
 		return schlagwort.equals(schlagwort2);
 	}
 }

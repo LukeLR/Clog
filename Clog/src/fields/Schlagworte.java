@@ -22,6 +22,11 @@ public class Schlagworte implements Serializable {
 	}
 	
 	public boolean enthaelt(Schlagwort schlagwort){
+		/*boolean ergebnis = false;
+		for (Schlagwort tempSchlagwort:schlagworte){
+			ergebnis = ergebnis || tempSchlagwort.equals(schlagwort);
+		}
+		return ergebnis;*/
 		return schlagworte.contains(schlagwort);
 	}
 	
