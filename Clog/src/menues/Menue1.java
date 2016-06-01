@@ -1,7 +1,7 @@
 package menues;
 
 import data.Datensatz;
-import data.DatensatzListe;
+import data.DatensatzManager;
 import eingabeausgabe.Ausgabe;
 import eingabeausgabe.Eingabe;
 import fields.DatumZeit;
@@ -62,7 +62,7 @@ public class Menue1 {
 			schlagwort = new Schlagwort(Eingabe.naechsterString());
 		}
 		Datensatz datensatz = new Datensatz(vorname, nachname, wohnort, datumZeit, titel, text, schlagworte);
-		DatensatzListe.datensatzHinzufuegen(datensatz);
+		DatensatzManager.datensatzHinzufuegen(datensatz);
 		Ausgabe.print("Datensatz hinzugefügt.");
 	}
 }
