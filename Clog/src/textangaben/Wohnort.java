@@ -18,4 +18,10 @@ public class Wohnort implements Serializable {
 	public void ausgeben(){
 		Ausgabe.print(wohnort);
 	}
+
+	public void unterstreichen(Zeichen zeichen) {
+		for (int i = 0; i < wohnort.length(); i++){
+			zeichen.ausgeben();
+		}
+	}
 }

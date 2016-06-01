@@ -5,6 +5,7 @@ import java.io.Serializable;
 import datumzeit.Datum;
 import datumzeit.Zeit;
 import eingabeausgabe.Ausgabe;
+import textangaben.Zeichen;
 
 public class DatumZeit implements Serializable {
 	/**
@@ -25,5 +26,14 @@ public class DatumZeit implements Serializable {
 		Ausgabe.print(" ");
 		zeit.ausgeben();
 		Ausgabe.printline();
+	}
+
+	public void unterstreichen(Zeichen zeichen) {
+		for (int i = 0; i < "Datum, Uhrzeit: ".length(); i++){
+			zeichen.ausgeben();
+		}
+		datum.unterstreichen(zeichen);
+		zeichen.ausgeben();
+		zeit.unterstreichen(zeichen);
 	}
 }

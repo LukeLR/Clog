@@ -18,4 +18,10 @@ public class Vorname implements Serializable {
 	public void ausgeben(){
 		Ausgabe.print(vorname);
 	}
+	
+	public void unterstreichen(Zeichen zeichen){
+		for (int i = 0; i < vorname.length(); i++){
+			zeichen.ausgeben();
+		}
+	}
 }

@@ -3,6 +3,7 @@ package datumzeit;
 import java.io.Serializable;
 
 import eingabeausgabe.Ausgabe;
+import textangaben.Zeichen;
 
 public class Tag implements Serializable {
 	/**
@@ -17,5 +18,12 @@ public class Tag implements Serializable {
 	
 	public void ausgeben(){
 		Ausgabe.print(tag);
+	}
+
+	public void unterstreichen(Zeichen zeichen) {
+		String tagString = String.valueOf(tag);
+		for (int i = 0; i < tagString.length(); i++){
+			zeichen.ausgeben();
+		}
 	}
 }

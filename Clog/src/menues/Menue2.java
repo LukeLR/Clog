@@ -11,6 +11,7 @@ public class Menue2 {
 		Schlagwort schlagwort = new Schlagwort(Eingabe.naechsterString());
 		Ausgabe.print("Gebe alle Datensätze mit diesem Schlagwort aus: ");
 		schlagwort.ausgeben();
+		Ausgabe.printline();
 		DatensatzManager.datensaetzeMitSchlagwortAusgeben(schlagwort);
 		Ausgabe.printline();
 	}

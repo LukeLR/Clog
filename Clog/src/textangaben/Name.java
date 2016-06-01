@@ -33,4 +33,10 @@ public class Name implements Serializable {
 		int nachnameLaenge = nachname.length();
 		return vornameLaenge + nachnameLaenge;
 	}*/
+	
+	public void unterstreichen(Zeichen zeichen){
+		vorname.unterstreichen(zeichen);
+		zeichen.ausgeben();
+		nachname.unterstreichen(zeichen);
+	}
 }

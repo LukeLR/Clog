@@ -43,6 +43,7 @@ public class Datensatz implements Serializable {
 		nameWohnortDatumZeitTitelText.ausgeben();
 		Ausgabe.print("Schlagworte: ");
 		schlagworte.ausgeben();
+		Ausgabe.printline();
 	}
 	
 	public void ausgebenWennEnthaeltSchlagwort(Schlagwort schlagwort){

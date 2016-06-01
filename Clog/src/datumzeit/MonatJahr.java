@@ -3,6 +3,7 @@ package datumzeit;
 import java.io.Serializable;
 
 import eingabeausgabe.Ausgabe;
+import textangaben.Zeichen;
 
 public class MonatJahr implements Serializable {
 	/**
@@ -21,5 +22,11 @@ public class MonatJahr implements Serializable {
 		monat.ausgeben();
 		Ausgabe.print(".");
 		jahr.ausgeben();
+	}
+
+	public void unterstreichen(Zeichen zeichen) {
+		monat.unterstreichen(zeichen);
+		zeichen.ausgeben();
+		jahr.unterstreichen(zeichen);
 	}
 }

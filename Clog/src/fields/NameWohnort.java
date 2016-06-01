@@ -7,6 +7,7 @@ import textangaben.Nachname;
 import textangaben.Name;
 import textangaben.Vorname;
 import textangaben.Wohnort;
+import textangaben.Zeichen;
 
 public class NameWohnort implements Serializable {
 	/**
@@ -29,9 +30,17 @@ public class NameWohnort implements Serializable {
 	public void ausgeben(){
 		Ausgabe.print("Name: ");
 		name.ausgeben();
-		Ausgabe.printline();
+		Ausgabe.print(" ");
 		Ausgabe.print("Wohnort: ");
 		wohnort.ausgeben();
-		Ausgabe.printline();
+		Ausgabe.print(" ");
+	}
+	
+	public void unterstreichen(Zeichen zeichen){
+		for (int i = 0; i < ("Name: " + " Wohnort:  ").length(); i++){
+			zeichen.ausgeben();
+		}
+		name.unterstreichen(zeichen);
+		wohnort.unterstreichen(zeichen);
 	}
 }

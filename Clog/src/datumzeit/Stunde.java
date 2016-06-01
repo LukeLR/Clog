@@ -3,6 +3,7 @@ package datumzeit;
 import java.io.Serializable;
 
 import eingabeausgabe.Ausgabe;
+import textangaben.Zeichen;
 
 public class Stunde implements Serializable {
 	/**
@@ -17,5 +18,12 @@ public class Stunde implements Serializable {
 	
 	public void ausgeben(){
 		Ausgabe.print(stunde);
+	}
+
+	public void unterstreichen(Zeichen zeichen) {
+		String stundeString = String.valueOf(stunde);
+		for (int i = 0; i < stundeString.length(); i++){
+			zeichen.ausgeben();
+		}
 	}
 }

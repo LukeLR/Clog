@@ -2,9 +2,11 @@ package fields;
 
 import java.io.Serializable;
 
+import eingabeausgabe.Ausgabe;
 import textangaben.Nachname;
 import textangaben.Vorname;
 import textangaben.Wohnort;
+import textangaben.Zeichen;
 
 public class NameWohnortDatumZeit implements Serializable {
 	/**
@@ -27,5 +29,8 @@ public class NameWohnortDatumZeit implements Serializable {
 	public void ausgeben(){
 		nameWohnort.ausgeben();
 		datumZeit.ausgeben();
+		nameWohnort.unterstreichen(new Zeichen('='));
+		datumZeit.unterstreichen(new Zeichen('='));
+		Ausgabe.printline();
 	}
 }
