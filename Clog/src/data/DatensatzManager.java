@@ -1,8 +1,5 @@
 package data;
 
-import java.util.ArrayList;
-
-import eingabeausgabe.Ausgabe;
 import eingabeausgabe.DeSerializer;
 import eingabeausgabe.Path;
 import textangaben.Schlagwort;

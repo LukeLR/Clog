@@ -16,6 +16,6 @@ public class Text implements Serializable {
 	}
 	
 	public void ausgeben(){
-		Ausgabe.print("text");
+		Ausgabe.print(text);
 	}
 }

@@ -1,7 +1,6 @@
 package main;
 
 import data.DatensatzManager;
-import eingabeausgabe.Eingabe;
 import menues.Menue0;
 
 public class Main {
