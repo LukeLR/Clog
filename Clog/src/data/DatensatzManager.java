@@ -3,34 +3,36 @@ package data;
 import java.util.ArrayList;
 
 import eingabeausgabe.Ausgabe;
+import eingabeausgabe.DeSerializer;
+import eingabeausgabe.Path;
 import textangaben.Schlagwort;
 
 public class DatensatzManager {
-	private static ArrayList<Datensatz> datensaetze = new ArrayList<Datensatz>();
+	private static DatensatzListe datensaetze = new DatensatzListe();
 	
 	public DatensatzManager(){
-		datensaetze = new ArrayList<Datensatz>();
+		datensaetze = new DatensatzListe();
 	}
 	
 	public static void datensatzHinzufuegen(Datensatz datensatz){
-		datensaetze.add(datensatz);
+		datensaetze.datensatzHinzufuegen(datensatz);
 	}
 	
 	public static void datensaetzeMitSchlagwortAusgeben(Schlagwort schlagwort){
-		for (Datensatz datensatz:datensaetze){
-			datensatz.ausgebenWennEnthaeltSchlagwort(schlagwort);
-		}
+		datensaetze.datensaetzeMitSchlagwortAusgeben(schlagwort);
 	}
 	
 	public static void ausgeben(){
-		Ausgabe.printline("Gebe alle Datensätze aus:");
-		for (Datensatz datensatz:datensaetze){
-			datensatz.ausgeben();
-			Ausgabe.printline();
-		}
+		datensaetze.ausgeben();
 	}
 	
-	public static void saveToFile(){
-		
+	public static void saveToFile(Path path){
+		DeSerializer<DatensatzListe> deSerializer = new DeSerializer<DatensatzListe>();
+		deSerializer.writeToFile(path, datensaetze);
+	}
+	
+	public static void readFromFile(Path path){
+		DeSerializer<DatensatzListe> deSerializer = new DeSerializer<DatensatzListe>();
+		datensaetze = deSerializer.readFromFile(path);
 	}
 }
