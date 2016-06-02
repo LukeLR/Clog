@@ -41,8 +41,8 @@ public class DatumZeit implements Serializable {
 
 	public static DatumZeit vonEingabeEinlesen() {
 		Ausgabe.print("Datum (TT.MM.JJJJ HH:MM:SS): ");
-		Datum datum = Datum.vonEingabeLesen();
-		Zeit zeit = Zeit.vonEingabeLesen();
+		Datum datum = Datum.vonEingabeEinlesen();
+		Zeit zeit = Zeit.vonEingabeEinlesen();
 		return new DatumZeit(datum, zeit);
 	}
 }

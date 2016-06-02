@@ -10,7 +10,5 @@ public class Menue4 {
 		Ausgabe.printline("Bitte geben Sie einen Dateipfad ein, an den die Datei gespeichert werden soll.");
 		Path path = new Path(Eingabe.naechsterString());
 		DatensatzManager.saveToFile(path);
-		Ausgabe.printline("Gespeichert!");
 	}
-
 }

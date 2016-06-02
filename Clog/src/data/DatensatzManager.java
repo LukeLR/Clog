@@ -1,5 +1,8 @@
 package data;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 import eingabeausgabe.Ausgabe;
 import eingabeausgabe.DeSerializer;
 import eingabeausgabe.Path;
@@ -26,18 +29,25 @@ public class DatensatzManager {
 	
 	public static void saveToFile(Path path){
 		DeSerializer<DatensatzListe> deSerializer = new DeSerializer<DatensatzListe>();
-		deSerializer.writeToFile(path, datensaetze);
+		try {
+			deSerializer.writeToFile(path, datensaetze);
+			Ausgabe.printline("Gespeichert!");
+		} catch (IOException e) {
+			Ausgabe.printline("Beim Zugriff auf den Speicherort ist ein Fehler aufgetreten. Stellen Sie sicher, dass der Speicherort für das Programm lesbar ist.");
+		}
 	}
 	
 	public static void readFromFile(Path path){
 		DeSerializer<DatensatzListe> deSerializer = new DeSerializer<DatensatzListe>();
-		datensaetze = deSerializer.readFromFile(path);
-		if (datensaetze == null){
-			Ausgabe.printline("Fehler beim Einlesen!");
-			datensaetze = new DatensatzListe();
-		}
-		if (datensaetze != null){
+		try {
+			datensaetze = deSerializer.readFromFile(path);
 			Ausgabe.printline("Eingelesen!");
+		} catch (FileNotFoundException exception){
+			Ausgabe.printline("Die Datei wurde nicht gefunden! Stellen Sie sicher, dass die Datei existiert und der Speicherort richtig eingegeben wurde.");
+		} catch (IOException exception) {
+			Ausgabe.printline("Es gab einen Fehler beim Zugriff auf die Datei. Stellen Sie sicher, dass die Datei für das Programm lesbar ist.");
+		} catch (ClassNotFoundException exception){
+			Ausgabe.printline("Die Datei ist Fehlerhaft. Bitte legen Sie eine neue Datei an.");
 		}
 	}
 }

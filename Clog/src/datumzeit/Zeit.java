@@ -7,9 +7,6 @@ import eingabeausgabe.Eingabe;
 import textangaben.Zeichen;
 
 public class Zeit implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -5046235435945037355L;
 	private StundeMinute stundeMinute;
 	private Sekunde sekunde;
@@ -31,7 +28,7 @@ public class Zeit implements Serializable {
 		sekunde.unterstreichen(zeichen);
 	}
 	
-	public static Zeit vonEingabeLesen(){
+	public static Zeit vonEingabeEinlesen(){
 		String zeit = Eingabe.naechsterString();
 		String[] zeitArray = zeit.split(":");
 		int[] zeitArrayInt = new int[zeitArray.length];
