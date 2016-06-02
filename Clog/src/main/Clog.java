@@ -8,6 +8,5 @@ public class Clog {
 
 	public static void main(String[] args) {
 		Menue0.run();
-		DatensatzManager.ausgeben();
 	}
 }
