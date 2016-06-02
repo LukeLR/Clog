@@ -5,7 +5,6 @@ import java.util.regex.Pattern;
 
 public class Eingabe {
 	private static Scanner scanner = new Scanner(System.in);
-	private static Pattern defaultDelimiter;
 	
 	public static String naechsterString(String delimiter){
 		scanner.skip("\n");
