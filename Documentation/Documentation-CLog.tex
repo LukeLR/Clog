@@ -7,6 +7,7 @@
 \pagestyle{scrheadings}
 
 \newcommand{\code}[1]{\texttt{#1}}
+\newenvironment{codeblock}{\ttfamily{}{}}
 
 \begin{document}
 \setlength{\parindent}{0pt} %Dummes Absatz-Eingerücke abstellen
@@ -20,5 +21,17 @@
 
 \section{Beschreibung}
 Der Nutzer startet das Programm im Terminal mit dem Aufruf \code{java Clog}. Beim Starten des Programms landet der Benutzer direkt im Hauptmenü des Programmes. Ihm werden die vorgegebenen Auswahlmöglichkeiten geboten, sowie eine zusätzliche Auswahlmöglichkeit \code{6}, alle Datensätze auszugeben:
+
+\begin{verbatim}
+Hauptmenü:
+1) Clog-Eintrag erzeugen
+2) Clog ausgeben
+3) Clog laden
+4) Clog speichern
+5) Programm beenden
+6) Alle Datensätze ausgeben
+\end{verbatim}
+
+\subsection{Menüpunkt 1: \code{Clog-Eintrag erzeugen}}
 
 \end{document}
