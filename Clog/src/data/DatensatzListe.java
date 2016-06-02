@@ -28,7 +28,7 @@ public class DatensatzListe implements Serializable {
 	}
 	
 	public void ausgeben(){
-		Ausgabe.printline("Gebe alle Datensätze aus:");
+		Ausgabe.printline("Gebe alle DatensÃ¤tze aus:");
 		for (Datensatz datensatz:datensaetze){
 			datensatz.ausgeben();
 			Ausgabe.printline();
