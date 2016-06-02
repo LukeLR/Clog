@@ -10,6 +10,5 @@ public class Menue3 {
 		Ausgabe.printline("Bitte geben Sie einen Dateipfad ein, von dem die Datei geladen werden soll.");
 		Path path = new Path(Eingabe.naechsterString());
 		DatensatzManager.readFromFile(path);
-		Ausgabe.printline("Eingelesen!");
 	}
 }

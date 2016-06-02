@@ -1,5 +1,6 @@
 package data;
 
+import eingabeausgabe.Ausgabe;
 import eingabeausgabe.DeSerializer;
 import eingabeausgabe.Path;
 import textangaben.Schlagwort;
@@ -31,5 +32,12 @@ public class DatensatzManager {
 	public static void readFromFile(Path path){
 		DeSerializer<DatensatzListe> deSerializer = new DeSerializer<DatensatzListe>();
 		datensaetze = deSerializer.readFromFile(path);
+		if (datensaetze == null){
+			Ausgabe.printline("Fehler beim Einlesen!");
+			datensaetze = new DatensatzListe();
+		}
+		if (datensaetze != null){
+			Ausgabe.printline("Eingelesen!");
+		}
 	}
 }
