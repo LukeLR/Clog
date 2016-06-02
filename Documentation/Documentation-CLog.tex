@@ -4,24 +4,92 @@
 \usepackage[utf8]{inputenc} %Umlaute
 \usepackage{tabularx}
 \usepackage{eurosym}
+\usepackage[x11names]{xcolor}
+\usepackage{float}
+\usepackage{wrapfig}
+%\usepackage{textcomp} %\textlangle und \textrangle (Spitze Klammern)
 \pagestyle{scrheadings}
 
-\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\code}[1]{\textcolor{Firebrick4}{\bcode{#1}}}
+\newcommand{\class}[1]{\textcolor{Green4}{\bcode{#1}}}
+\newcommand{\package}[1]{Package \textcolor{Blue4}{\bcode{#1}}}
+\newcommand{\method}[1]{\textcolor{Orange3}{\bcode{#1()}}}
+\newcommand{\function}[2]{\textcolor{Orange3}{\bcode{#1(\attribute{#2})}}}
+\newcommand{\attribute}[1]{\textcolor{SkyBlue3}{\bcode{#1}}}
+\newcommand{\methodcall}[2]{\class{#1}.\method{#2}}
+\newcommand{\bcode}[1]{\texttt{#1}}
 \newenvironment{codeblock}{\ttfamily{}{}}
 
 \begin{document}
 \setlength{\parindent}{0pt} %Dummes Absatz-Eingerücke abstellen
+\setlength{\parskip}{5pt}
 \cofoot{}
 \rofoot{\pagemark}
+\floatstyle{boxed}
+\restylefloat{figure}
 
 \begin{center}
 \Huge{CLog Documentation} \par
 \Large{HHU-Programmierpraktikum SS2016 Projekt 5}
 \end{center}
 
-\section{Beschreibung}
-Der Nutzer startet das Programm im Terminal mit dem Aufruf \code{java Clog}. Beim Starten des Programms landet der Benutzer direkt im Hauptmenü des Programmes. Ihm werden die vorgegebenen Auswahlmöglichkeiten geboten, sowie eine zusätzliche Auswahlmöglichkeit \code{6}, alle Datensätze auszugeben:
+\tableofcontents
 
+\section{Verwendete Strukturen}
+\subsection{Wrapper-Klassen}
+Wrapper-Klassen enthalten in der Regel eine private Variable des entsprechenden Datentyps, welche über den Konstruktor gesetzt werden kann. Da Getter- und Setter-Methoden nicht erlaubt sind, ist es nicht möglich, den gespeicherten Wert abzufragen oder nach der Erstellung zu manipulieren. Lediglich eine Ausgabe auf der Konsole (mittels \class{Ausgabe}) ist durch die Methode \method{ausgeben} möglich und völlig ausreichend für die hier verwendeten Zwecke.
+
+Wenn die Wrapper-Klassen Wrapper für Elemente eines Datensatzes sind, so enthalten sie in der Regel ebenfalls eine Methode \function{unterstreichen}{char zeichen} zum Ausgeben einer aus \attribute{zeichen} bestehenden Zeichenkette in der Länge des durch die Methode \method{ausgeben} produzierten Strings, und eine Methode \method{vonEingabeEinlesen}, welche statisch ist und die für ein Objekt des entsprechenden Typs von der Konsole einliest (den Nutzer dazu auffordert), ein Objekt des entsprechenden Typs daraus erzeugt und dieses zurückgibt.
+
+\subsection{\glqq Vereinigungs\grqq-Klassen}
+Ein Kernproblem ist die Restriktion von maximal 2 Attributen pro Klasse. Da recht viele Attribute gespeichert werden müssen, ist es nicht möglich, z.B. eine Klasse \class{Datum} zu erstellen, welche die Attribute \code{tag}, \code{monat} und \code{jahr} speichert.
+
+Ich löse dieses Problem, indem ich erst eine Klasse \class{MonatJahr} erstelle, welche die Attribute \code{monat} und \code{jahr} speichert, und dann eine weitere Klasse \class{Datum}, welche die Attribute \code{monatJahr} und \code{tag} speichert, um diese Regel zu befolgen. 
+
+Etwaige Funktionsaufrufe von Methoden wie \method{ausgeben} oder \method{unterstreichen} (weiteres dazu später) bestehen dann aus den Aufrufen der entsprechenden Methoden bei den gespeicherten Objekten (z.B. \methodcall{Datum}{ausgeben} ruft \methodcall{MonatJahr}{ausgeben} und \methodcall{Tag}{ausgeben} auf).
+
+\section{Packages}
+Im Programm sind die einzelnen Klassen in Packages sortiert:
+\begin{itemize}
+\item \package{data} enthält die Klassen, die einen Datensatz repräsentieren und die Datensätze verwalten:
+\begin{itemize}
+\item \class{Datensatz} repräsentiert einen Datensatz
+\item \class{DatensatzListe} speichert alle Datensätze in einer Liste, bietet Methoden zum Hinzufügen, Durchsuchen (und Ausgeben).
+\item \class{DatensatzManager} verwaltet die Datensatzliste, also Datensätze hinzufügen, durchsuchen (und ausgeben), in eine Datei speichern und aus einer Datei lesen.
+\end{itemize}
+\item \package{datumzeit} enthält alle Klassen, die zum dem Speichern von Datum und Uhrzeit verwendet werden:
+\begin{itemize}
+\item \class {Jahr, Minute, Monat, Sekunde, Stunde} speichern die entsprechende Angabe als Integer.
+\item \class {MonatJahr, StundeMinute} werden verwendet, um die jeweiligen Objekte zu vereinen (maximal 2 Attribute pro Klasse).
+\item \class {Datum} stellt ein Datum dar (Vereint \class{MonatJahr} und \class{Tag}).
+\item \class {Zeit} stellt eine Uhrzeit dar (Vereint \class{StundeMinute} und \class{Sekunde})
+\end{itemize}
+\item \package{eingabeausgabe} behandelt die Ein- und Ausgabe jeglicher Art, sowohl zum/vom Terminal als auch in/aus Dateien:
+\begin{itemize}
+\item \class{Ausgabe} bietet Funktionen zum Ausgeben von Text in die Kommandozeile.
+\item \class{Eingabe} bietet Funktionen zum Lesen von Text aus der Kommandozeile.
+\item \class{DeSerializer} bietet Funktionen, um Java-Objekte in eine gegebene Datei zu speichern bzw. aus einer zu lesen.
+\item \class{Path} repräsentiert einen Dateipfad.
+\end{itemize}
+\item \package{fields} beinhaltet alle Felder, die in einem Datensatz gespeichert werden sollen (zusammengefügt aus gewrappten Strings und Primitives und deren zusammenführenden Klassen):
+\begin{itemize}
+\item \class{DatumZeit, NameWohnort, TitelText} speichern jeweils die entsprechenden Objekte, um sie zu einem zu vereinen.
+\item \class{NameWohnortDatumZeit} vereint \class{NameWohnort} und \class{DatumZeit} zu einem Objekt.
+\item \class{NameWohnortDatumZeitTitelText} vereint \class{NameWohnortDatumZeit} und \class{TitelText} zu einem Objekt.
+\item \class{Schlagworte} speichert eine \code{ArrayList}$\langle$\class{Schlagwort}$\rangle$.
+\end{itemize}
+\item \package{main} enthält lediglich die Main-Klasse, welche die Main-Methode enthält.
+\item \package{menues} enthält die Objekte, welche die Menüs repräsentieren. Jedes Menü-Objekt enthält dabei eine Methode \method{menue}, welche die dem Menü zugeordnete Aktion ausführt (z.B. Daten Einlesen, Programm beenden etc.) und entsprechende Ein- und Ausgaben verwaltet. Die \method{menue}-Methode endet, wenn eine jeweilige Aktion abgeschlossen ist.
+\item \package{textangaben} enthält Wrapper-Klassen und \glqq Vereinigungsklassen\grqq für alle weiteren Angaben eines Datensatzes (Textangaben, bis auf Datum + Zeit):
+\begin{itemize}
+\item \class {Nachname, Schlagwort, Text, Titel, Vorname, Wohnort, Zeichen} speichern jeweils ein entsprechendes Element als \code{String} (bzw. \code{char} im Falle von Zeichen).
+\item \class {Name} vereint \class{Vorname} und \class{Nachname} zu einem Objekt.
+\end{itemize}
+\end{itemize}Beschreibung
+
+\section{User story}
+\begin{wrapfigure}{r}{0.4\textwidth}
+\vspace{-10pt}
 \begin{verbatim}
 Hauptmenü:
 1) Clog-Eintrag erzeugen
@@ -31,7 +99,16 @@ Hauptmenü:
 5) Programm beenden
 6) Alle Datensätze ausgeben
 \end{verbatim}
+\vspace{-10pt}
+\caption{Hauptmenü}
+\end{wrapfigure}
+Der Nutzer startet das Programm im Terminal mit dem Aufruf \code{java Clog}. Dadurch wird in der Klasse \code{main.Clog} die Main-Methode \code{public static void main(String args[])} aufgerufen. Diese Methode enthält lediglich einen Aufruf an die Methode \code{menue()} der Klasse \code{menues.Menue0}, welche die Main-Loop enthält. Darin wird für den Nutzer lesbar das Hauptmenü ausgegeben, auf eine Antwort gewartet, die Antwort mittels eines Switches ausgewertet und die entsprechende Subroutine in einer der anderen Menüklassen aufgerufen. 
 
 \subsection{Menüpunkt 1: \code{Clog-Eintrag erzeugen}}
+Wählt der Nutzer Menüpunkt 1, so wird die Funktion \code{menue()} in der Klasse \code{menues.Menue1} aufgerufen. Diese behandelt das Erzeugen eines neuen Logeintrags. Dazu wird eine Ausgabe auf der Konsole erzeugt, welche den Nutzer über den gestarteten Vorgang informiert und die Bestätigung der Eingaben mit Enter anfordert. 
+
+\subsection{Ausgaben und Eingaben}
+
+\subsection{Lesen und Schreiben der Dateien}
 
 \end{document}
