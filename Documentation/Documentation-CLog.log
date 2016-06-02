@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2016.3.17)  2 JUN 2016 19:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Arch Linux) (preloaded format=pdflatex 2016.3.17)  2 JUN 2016 21:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -440,18 +440,18 @@ Package: wrapfig 2003/01/31  v 3.6
 ) (./Documentation-CLog.aux)
 \openout1 = `Documentation-CLog.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
  (/usr/share/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count93
@@ -481,53 +481,61 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 54.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 55.
  (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 54.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 55.
  [2]
-Overfull \hbox (30.19432pt too wide) in paragraph at lines 78--79
+Overfull \hbox (30.19432pt too wide) in paragraph at lines 79--80
 [][]\OT1/cmtt/m/n/12 NameWohnortDatumZeitTitelText[] \OT1/cmr/m/n/12 ver-eint [
 ]\OT1/cmtt/m/n/12 NameWohnortDatumZeit[] \OT1/cmr/m/n/12 und []\OT1/cmtt/m/n/12
  TitelText[]
  []
 
 
-Overfull \hbox (4.09612pt too wide) in paragraph at lines 85--86
+Overfull \hbox (4.09612pt too wide) in paragraph at lines 86--87
 [][]\OT1/cmtt/m/n/12 Nachname, Schlagwort, Text, Titel, Vorname, Wohnort, Zeich
 en[] \OT1/cmr/m/n/12 spei-
  []
 
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 107.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 108.
 
-Overfull \hbox (14.82393pt too wide) in paragraph at lines 108--109
+Overfull \hbox (14.82393pt too wide) in paragraph at lines 109--110
 \OT1/cmr/m/n/12 W[]ahlt der Nut-zer Men[]upunkt 1, so wird die Funk-ti-on []\OT
 1/cmtt/m/n/12 menue()[] \OT1/cmr/m/n/12 in der Klas-se []\OT1/cmtt/m/n/12 menue
 s.Menue1[]
  []
 
+
+Overfull \hbox (57.6213pt too wide) in paragraph at lines 109--110
+\OT1/cmr/m/n/12 Objekt ge-spei-chert wer-den, und zwar als der R[]uckgabewert v
+on []\OT1/cmtt/m/n/12 Datensatz[]\OT1/cmr/m/n/12 .[]\OT1/cmtt/m/n/12 vonEingabe
+Einlesen()[]\OT1/cmr/m/n/12 .
+ []
+
 [3] [4] (./Documentation-CLog.aux) ) 
 Here is how much of TeX's memory you used:
- 4491 strings out of 493054
- 65169 string characters out of 6140586
- 226964 words of memory out of 5000000
- 7981 multiletter control sequences out of 15000+600000
+ 4492 strings out of 493054
+ 65178 string characters out of 6140586
+ 227964 words of memory out of 5000000
+ 7982 multiletter control sequences out of 15000+600000
  9160 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,10n,47p,592b,320s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,10n,47p,1133b,320s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
 12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/sh
-are/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmtt12.pfb>
-Output written on Documentation-CLog.pdf (4 pages, 80019 bytes).
+are/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/share/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmtt12.pfb>
+Output written on Documentation-CLog.pdf (4 pages, 93296 bytes).
 PDF statistics:
- 41 PDF objects out of 1000 (max. 8388607)
- 28 compressed objects within 1 object stream
+ 45 PDF objects out of 1000 (max. 8388607)
+ 31 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

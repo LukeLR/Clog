@@ -18,6 +18,7 @@
 \newcommand{\attribute}[1]{\textcolor{SkyBlue3}{\bcode{#1}}}
 \newcommand{\methodcall}[2]{\class{#1}.\method{#2}}
 \newcommand{\bcode}[1]{\texttt{#1}}
+\newcommand{\emphasize}[1]{\textsl{#1}}
 \newenvironment{codeblock}{\ttfamily{}{}}
 
 \begin{document}
@@ -105,7 +106,9 @@ Hauptmenü:
 Der Nutzer startet das Programm im Terminal mit dem Aufruf \code{java Clog}. Dadurch wird in der Klasse \code{main.Clog} die Main-Methode \code{public static void main(String args[])} aufgerufen. Diese Methode enthält lediglich einen Aufruf an die Methode \code{menue()} der Klasse \code{menues.Menue0}, welche die Main-Loop enthält. Darin wird für den Nutzer lesbar das Hauptmenü ausgegeben, auf eine Antwort gewartet, die Antwort mittels eines Switches ausgewertet und die entsprechende Subroutine in einer der anderen Menüklassen aufgerufen. 
 
 \subsection{Menüpunkt 1: \code{Clog-Eintrag erzeugen}}
-Wählt der Nutzer Menüpunkt 1, so wird die Funktion \code{menue()} in der Klasse \code{menues.Menue1} aufgerufen. Diese behandelt das Erzeugen eines neuen Logeintrags. Dazu wird eine Ausgabe auf der Konsole erzeugt, welche den Nutzer über den gestarteten Vorgang informiert und die Bestätigung der Eingaben mit Enter anfordert. Danach soll ein neues \class{Datensatz}-Objekt gespeichert werden, und zwar als der Rückgabewert von
+Wählt der Nutzer Menüpunkt 1, so wird die Funktion \code{menue()} in der Klasse \code{menues.Menue1} aufgerufen. Diese behandelt das Erzeugen eines neuen Logeintrags. Dazu wird eine Ausgabe auf der Konsole erzeugt, welche den Nutzer über den gestarteten Vorgang informiert und die Bestätigung der Eingaben mit Enter anfordert. Danach soll ein neues \class{Datensatz}-Objekt gespeichert werden, und zwar als der Rückgabewert von \methodcall{Datensatz}{vonEingabeEinlesen}. Dadurch startet die Klasse selbstständig den Einlesevorgang, und lässt auch die gespeicherten Objekte den Einlesevorgang starten. Der Nutzer wird nach \emphasize{Vorname, Nachname, Wohnort, Datum und Zeit, Titel, Text} und \emphasize{Schlagworten} gefragt, wobei Titel und Text die einzigen Eingaben sind, bei denen mehr als ein Wort erlaubt ist. Dazu wird die Eingabe nicht nur durch einen Zeilenumbruch (Enter), sondern zusätzlich auch noch durch ein \code{';'} in der Eingabe beendet. Eine Eingabe von mehreren Schlagworten auf einmal führt dazu, dass jedes einzelne Wort als Schlagwort interpretiert wird.
+
+Sind alle Daten erfasst, so wird der \class{Datensatz} dem \class{DatensatzManager} übergeben, um ihn in der \class{DatensatzListe}
 
 \subsection{Ausgaben und Eingaben}
 
