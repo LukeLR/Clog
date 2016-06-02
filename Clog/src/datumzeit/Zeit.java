@@ -28,7 +28,7 @@ public class Zeit implements Serializable {
 		sekunde.unterstreichen(zeichen);
 	}
 	
-	public static Zeit vonEingabeEinlesen(){
+	public static Zeit vonEingabeEinlesen() throws ArrayIndexOutOfBoundsException, NumberFormatException {
 		String zeit = Eingabe.naechsterString();
 		String[] zeitArray = zeit.split(":");
 		int[] zeitArrayInt = new int[zeitArray.length];

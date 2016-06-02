@@ -40,9 +40,17 @@ public class DatumZeit implements Serializable {
 	}
 
 	public static DatumZeit vonEingabeEinlesen() {
-		Ausgabe.print("Datum (TT.MM.JJJJ HH:MM:SS): ");
-		Datum datum = Datum.vonEingabeEinlesen();
-		Zeit zeit = Zeit.vonEingabeEinlesen();
-		return new DatumZeit(datum, zeit);
+		try {
+			Ausgabe.print("Datum (TT.MM.JJJJ HH:MM:SS): ");
+			Datum datum = Datum.vonEingabeEinlesen();
+			Zeit zeit = Zeit.vonEingabeEinlesen();
+			return new DatumZeit(datum, zeit);
+		} catch (NumberFormatException exception) {
+			Ausgabe.printline("Fehler beim Einlesen! Bitte verwenden Sie nur Zahlen im Eingabeformat: TT.MM.JJJJ HH:MM:SS (z.B. 01.01.1970 00:00:00).");
+			return DatumZeit.vonEingabeEinlesen();
+		} catch (ArrayIndexOutOfBoundsException exception){
+			Ausgabe.printline("Fehler beim Einlesen! Bitte achten Sie auf die Vollständigkeit der Eingabe: TT.MM.JJJJ HH:MM:SS (z.B. 01.01.1970 00:00:00).");
+			return DatumZeit.vonEingabeEinlesen();
+		}
 	}
 }

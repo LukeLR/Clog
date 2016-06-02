@@ -7,9 +7,10 @@ public class Menue0 {
 	private static final String hauptmenue =
 			"1) Clog-Eintrag erzeugen\n" +
 			"2) Clog ausgeben\n" +
-			"3) Clog laden\n"+
-			"4) Clog speichern\n"+
-			"5) Programm beenden";
+			"3) Clog laden\n" +
+			"4) Clog speichern\n" +
+			"5) Programm beenden\n" +
+			"6) Alle Datensätze ausgeben";
 	
 	public static void run(){
 		while(true){
@@ -26,6 +27,7 @@ public class Menue0 {
 		case "3": Menue3.menue(); break;
 		case "4": Menue4.menue(); break;
 		case "5": Menue5.menue(); break;
+		case "6": Menue6.menue(); break;
 		default: Ausgabe.printline("Bitte machen Sie eine korrekte Eingabe!"); break;
 		}
 	}
