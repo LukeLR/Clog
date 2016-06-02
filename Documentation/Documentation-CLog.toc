@@ -1,9 +1,16 @@
 \select@language {ngerman}
-\contentsline {section}{\numberline {1}Verwendete Strukturen}{1}
-\contentsline {subsection}{\numberline {1.1}Wrapper-Klassen}{1}
-\contentsline {subsection}{\numberline {1.2}\glqq Vereinigungs\grqq -Klassen}{1}
-\contentsline {section}{\numberline {2}Packages}{2}
-\contentsline {section}{\numberline {3}User story}{3}
-\contentsline {subsection}{\numberline {3.1}Men\IeC {\"u}punkt 1: \leavevmode {\color {Firebrick4}\texttt {Clog-Eintrag erzeugen}}}{3}
-\contentsline {subsection}{\numberline {3.2}Ausgaben und Eingaben}{4}
-\contentsline {subsection}{\numberline {3.3}Lesen und Schreiben der Dateien}{4}
+\contentsline {section}{\numberline {1}Verwendete Strukturen}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}Wrapper-Klassen}{1}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}\glqq Vereinigungs\grqq -Klassen}{2}{subsection.1.2}
+\contentsline {section}{\numberline {2}Packages}{2}{section.2}
+\contentsline {section}{\numberline {3}Funktionsweisen}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}Generelle Funktion der Men\IeC {\"u}punkte}{4}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Men\IeC {\"u}punkt 1: \leavevmode {\color {Firebrick4}\texttt {\hyphenchar \font =45\relax Clog-Eintrag erzeugen}}}{4}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Men\IeC {\"u}punkt 2: \leavevmode {\color {Firebrick4}\texttt {\hyphenchar \font =45\relax Clog ausgeben}}}{5}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Men\IeC {\"u}punkt 3: \leavevmode {\color {Firebrick4}\texttt {\hyphenchar \font =45\relax Clog laden}}}{5}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Men\IeC {\"u}punkt 4: \leavevmode {\color {Firebrick4}\texttt {\hyphenchar \font =45\relax Clog speichern}}}{6}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Men\IeC {\"u}punkt 5: \leavevmode {\color {Firebrick4}\texttt {\hyphenchar \font =45\relax Programm beenden}}}{6}{subsection.3.6}
+\contentsline {subsection}{\numberline {3.7}Men\IeC {\"u}punkt 6: \leavevmode {\color {Firebrick4}\texttt {\hyphenchar \font =45\relax Alle Datens\IeC {\"a}tze ausgeben}}}{6}{subsection.3.7}
+\contentsline {subsection}{\numberline {3.8}Ausgaben und Eingaben}{6}{subsection.3.8}
+\contentsline {subsubsection}{\numberline {3.8.1}\leavevmode {\color {Orange3}\texttt {\hyphenchar \font =45\relax nextString (\leavevmode {\color {SkyBlue3}\texttt {\hyphenchar \font =45\relax String delimiter}})}}}{7}{subsubsection.3.8.1}
+\contentsline {section}{\numberline {4}Fragen}{7}{section.4}

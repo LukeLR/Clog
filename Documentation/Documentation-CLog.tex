@@ -7,17 +7,42 @@
 \usepackage[x11names]{xcolor}
 \usepackage{float}
 \usepackage{wrapfig}
+\usepackage{xparse} %\ExplSyntaxOn, ...Off
+\usepackage{hyperref} %Links im Inhaltsverzeichnis und \nameref
 %\usepackage{textcomp} %\textlangle und \textrangle (Spitze Klammern)
 \pagestyle{scrheadings}
 
+\newcommand*{\EnableHyphenationInTexttt}{\hyphenchar\font=45\relax}% breakable \texttt, as in http://tex.stackexchange.com/questions/312785/colored-text-with-linebreaks
+\newcommand{\EnableLineBreaksBeforeTexttt}{\hfil\penalty0 \hfilneg}
+
+%\ExplSyntaxOn %as in http://tex.stackexchange.com/questions/312785/colored-text-with-linebreaks
+%\NewDocumentCommand{\bcode}{m}
+% {
+%  \texttt{\lukelr_split_class:n { #1 }}
+% }
+%\cs_new_protected:Nn \lukelr_split_class:n
+% {
+%  \tl_map_inline:nn { #1 }
+%   {
+%    \int_compare:nT { \char_value_uccode:n { `##1 } =`##1 }
+%     { \discretionary{}{}{} }
+%    ##1
+%   }
+% }
+%\ExplSyntaxOff
+
 \newcommand{\code}[1]{\textcolor{Firebrick4}{\bcode{#1}}}
 \newcommand{\class}[1]{\textcolor{Green4}{\bcode{#1}}}
-\newcommand{\package}[1]{Package \textcolor{Blue4}{\bcode{#1}}}
+\newcommand{\package}[1]{Package \npackage{#1}}
+\newcommand{\npackage}[1]{\textcolor{Blue4}{\bcode{#1}}}
+\newcommand{\fullclass}[2]{\npackage{#1}.\class{#2}}
 \newcommand{\method}[1]{\textcolor{Orange3}{\bcode{#1()}}}
-\newcommand{\function}[2]{\textcolor{Orange3}{\bcode{#1(\attribute{#2})}}}
+\newcommand{\function}[2]{\textcolor{Orange3}{\bcode{#1 (\attribute{#2})}}}
 \newcommand{\attribute}[1]{\textcolor{SkyBlue3}{\bcode{#1}}}
 \newcommand{\methodcall}[2]{\class{#1}.\method{#2}}
-\newcommand{\bcode}[1]{\texttt{#1}}
+\newcommand{\functioncall}[3]{\class{#1}. \function{#2}{#3}}
+\newcommand{\bcode}[1]{\texttt{\EnableHyphenationInTexttt#1}}
+%\newcommand{\bcode}[1]{\EnableLineBreaksBeforeTexttt\texttt{#1}}
 \newcommand{\emphasize}[1]{\textsl{#1}}
 \newenvironment{codeblock}{\ttfamily{}{}}
 
@@ -86,11 +111,10 @@ Im Programm sind die einzelnen Klassen in Packages sortiert:
 \item \class {Nachname, Schlagwort, Text, Titel, Vorname, Wohnort, Zeichen} speichern jeweils ein entsprechendes Element als \code{String} (bzw. \code{char} im Falle von Zeichen).
 \item \class {Name} vereint \class{Vorname} und \class{Nachname} zu einem Objekt.
 \end{itemize}
-\end{itemize}Beschreibung
+\end{itemize}
 
-\section{User story}
+\section{Funktionsweisen}
 \begin{wrapfigure}{r}{0.4\textwidth}
-\vspace{-10pt}
 \begin{verbatim}
 Hauptmenü:
 1) Clog-Eintrag erzeugen
@@ -100,18 +124,80 @@ Hauptmenü:
 5) Programm beenden
 6) Alle Datensätze ausgeben
 \end{verbatim}
-\vspace{-10pt}
 \caption{Hauptmenü}
 \end{wrapfigure}
+
 Der Nutzer startet das Programm im Terminal mit dem Aufruf \code{java Clog}. Dadurch wird in der Klasse \code{main.Clog} die Main-Methode \code{public static void main(String args[])} aufgerufen. Diese Methode enthält lediglich einen Aufruf an die Methode \code{menue()} der Klasse \code{menues.Menue0}, welche die Main-Loop enthält. Darin wird für den Nutzer lesbar das Hauptmenü ausgegeben, auf eine Antwort gewartet, die Antwort mittels eines Switches ausgewertet und die entsprechende Subroutine in einer der anderen Menüklassen aufgerufen. 
 
-\subsection{Menüpunkt 1: \code{Clog-Eintrag erzeugen}}
-Wählt der Nutzer Menüpunkt 1, so wird die Funktion \code{menue()} in der Klasse \code{menues.Menue1} aufgerufen. Diese behandelt das Erzeugen eines neuen Logeintrags. Dazu wird eine Ausgabe auf der Konsole erzeugt, welche den Nutzer über den gestarteten Vorgang informiert und die Bestätigung der Eingaben mit Enter anfordert. Danach soll ein neues \class{Datensatz}-Objekt gespeichert werden, und zwar als der Rückgabewert von \methodcall{Datensatz}{vonEingabeEinlesen}. Dadurch startet die Klasse selbstständig den Einlesevorgang, und lässt auch die gespeicherten Objekte den Einlesevorgang starten. Der Nutzer wird nach \emphasize{Vorname, Nachname, Wohnort, Datum und Zeit, Titel, Text} und \emphasize{Schlagworten} gefragt, wobei Titel und Text die einzigen Eingaben sind, bei denen mehr als ein Wort erlaubt ist. Dazu wird die Eingabe nicht nur durch einen Zeilenumbruch (Enter), sondern zusätzlich auch noch durch ein \code{';'} in der Eingabe beendet. Eine Eingabe von mehreren Schlagworten auf einmal führt dazu, dass jedes einzelne Wort als Schlagwort interpretiert wird.
+\subsection{Generelle Funktion der Menüpunkte}
+Es gibt zu jedem Menüpunkt \code{X} eine Klasse \class{menues.MenueX}. Diese beinhaltet eine Methode \method{menue}, welche den Programmcode enthält, der beim Auswählen des Menüpunktes ausgeführt werden soll. Ist die Methode durchlaufen, so wird ins Hauptmenü zurückgekehrt (dank der Main loop).
 
-Sind alle Daten erfasst, so wird der \class{Datensatz} dem \class{DatensatzManager} übergeben, um ihn in der \class{DatensatzListe}
+\subsection{Menüpunkt 1: \code{Clog-Eintrag erzeugen}}
+Wählt der Nutzer Menüpunkt 1, so wird die Funktion \code{menue()} in der Klasse \code{menues.Menue1} aufgerufen. Diese behandelt das Erzeugen eines neuen Logeintrags. Dazu wird eine Ausgabe auf der Konsole erzeugt, welche den Nutzer über den gestarteten Vorgang informiert und die Bestätigung der Eingaben mit Enter anfordert. Danach soll ein neues \class{Datensatz}-Objekt gespeichert werden, und zwar als der Rückgabewert von \methodcall{Datensatz}{vonEingabeEinlesen}.
+
+Dadurch startet die Klasse selbstständig den Einlesevorgang, und lässt auch die gespeicherten Objekte den Einlesevorgang starten. Der Nutzer wird nach \emphasize{Vorname, Nachname, Wohnort, Datum und Zeit, Titel, Text} und \emphasize{Schlagworten} gefragt, wobei Titel und Text die einzigen Eingaben sind, bei denen mehr als ein Wort erlaubt ist. Dazu wird die Eingabe nicht nur durch einen Zeilenumbruch (Enter), sondern zusätzlich auch noch durch ein \code{';'} in der Eingabe beendet. Eine Eingabe von mehreren Schlagworten auf einmal führt dazu, dass jedes einzelne Wort als Schlagwort interpretiert wird.
+
+In allen Klassen außer der \class{DatumZeit}, \class{Titel} und \class{Text} wird einfach der nächste String vom Eingabe-\code{Scanner} abgefragt und als Wert verwendet. Bei den Klassen \class{Titel} und \class{Text} wird zunächst der Delimiter des Scanners auf den spezifizierten Terminierungs-Character \code{';'} gewechselt, und vor sowie nach dem Einlesen etwaig übergebliebene Delimiter (Zeilenumbrüche von der vorherigen Eingabe oder das Semikolon dieser Eingabe) im Scanner übersprungen, damit diese nicht in dieser oder der nächsten Eingabe interpretiert werden.
+
+In der Klasse \class{DatumZeit} wird das Datum im Format \code{TT.MM.JJJJ} eingelesen, die Zeit im Format \code{HH:MM:SS}, wobei für \code{TT}, \code{MM}, \code{JJJJ}, \code{HH}, \code{MM} und \code{SS} Integer erwartet werden. Dabei wird jeweils das Konstrukt \code{TT.MM.JJJJ} bzw. \code{HH:MM:SS} als ganzer String eingelesen und entsprechend der Trennzeichen \code{'.'} bzw. \code{':'} gesplittet. Die einzelnen \glqq Stellen\grqq des daraus resultierenden StringArrays werden versucht nach Integern zu parsen. Etwaige Fehlermeldungen werden direkt abgefangen, und es wird eine entsprechende Fehlermeldung ausgegeben (dabei wird zwischen "Eingabe ist keine Zahl" oder "Eingabe ist nicht vollständig" unterschieden), und der Nutzer wird sofort erneut zur Eingabe aufgefordert.
+
+Sind alle Daten erfasst, so wird der \class{Datensatz} dem \class{DatensatzManager} übergeben, um ihn in der \class{DatensatzListe} zu hinterlegen. Danach ist der Methodenaufruf zuende, und das Hauptmenü wird erneut ausgegeben.
+
+\subsection{Menüpunkt 2: \code{Clog ausgeben}}
+In diesem Menüpunkt wird der Nutzer um Eingabe eines Schlagwortes gebeten, nach dem die Logeinträge durchsucht werden sollen. Die Eingabe akzeptiert nur ein einzelnes Wort und wird erneut mit Enter bestätigt.
+
+Anschließend wird die Methode \functioncall{DatensatzManager}{datensaetzeMitSchlagwortAusgeben}{Schlagwort schlagwort} aufgerufen, welche den Aufruf an die Methode \functioncall{DatensatzListe}{datensaetzeMitSchlagwortAusgeben}{Schlagwort schlagwort} weitergibt. Diese iteriert durch die Liste, und führt auf jedem \class{Schlagwort} die Methode \functioncall{Datensatz}{ausgebenWennEnthaeltSchlagwort}{Schlagwort schlagwort} ausführt.
+
+Die Funktion der Methode ist sehr simpel, sie fragt die gespeicherte \code{ArrayList$\langle$ Schlagwort $\rangle$}, ob sie das übergebene \attribute{schlagwort} enthält, und reicht den Rückgabewert durch. Zum Vergleichen wird automatisch \functioncall{Schlagwort}{equals}{Object anObject} durch die \code{ArrayList$\langle$ Schlagwort $\rangle$} verwendet.
+
+\subsection{Menüpunkt 3: \code{Clog laden}}
+Mit diesem Menüpunkt wird ein gespeicherter \code{CLog} aus einer Datei geladen. Es wird zunächst der Nutzer nach einem Pfad gefragt, von dem aus die Datei eingelesen werden soll. Die Methode \functioncall{DatensatzManager}{readFromFile}{Path path} wird aufgerufen, welche das eigentliche Einlesen durch die Methode \functioncall{eingabeausgabe.DeSerializer}{readFromFile}{Path path} durchführen lässt. Dazu wird zunächst ein Objekt vom Typ \class{DeSerializer} erstellt, und mit dem Einzulesenden Datentyp parametrisiert (in diesem Fall \class{DatensatzListe}). Die Funktion verwendet einen \code{ObjectInputStream}, der auf einen \code{FileInputStream} gesetzt wird, zum Einlesen der serialisierten Daten in's Programm. Danach wird ein Cast in den parametrisierten Datentyp versucht und das Element zurückgegeben.
+
+Etwaige Exceptions werden von der aufrufenden Methode \functioncall{DatensatzManager}{readFromFile}{Path path} behandelt. Im Falle eines Fehlers wird eine entsprechende Fehlermeldung ausgegeben (dabei wird unterschieden, ob die Datei nicht existiert, nicht gelesen werden kann oder nicht lesbar ist), und ins Hauptmenü zurückgekehrt.
+
+\subsection{Menüpunkt 4: \code{Clog speichern}}
+Mit diesem Menüpunkt kann der aktuell geladene \code{CLog} in eine Datei gespeichert werden. Dazu wird der Einfachheit halber einfach das Objekt \class{DatensatzListe}, welches alle Datensätze enthält, Serialisiert und mittels eines \code{ObjectOutputStreams}, der auf einen \code{FileOutputStream} gesetzt wird, zum Schreiben der serialisierten Daten verwendet. Der Pfad ist dabei vom Benutzer frei wählbar und wird zuvor abgefragt.
+
+Schlägt das Schreiben fehl, so werden die entsprechenden Exceptions abgefangen und eine dazugehörige Fehlermeldung ausgegeben. Danach wird der Nutzer zurück ins Hauptmenü gebracht, von wo aus er die nächste Aktion tätigen kann.
+
+\subsection{Menüpunkt 5: \code{Programm beenden}}
+Dies ist der wohl einfachste aller Menüpunkte, in diesem Fall ruft die \methodcall{Menue5}{menue} einfach einen \code{System.exit(\attribute{0})} auf, wobei die 0 für den Exitcode einer \glqq normal termination\grqq steht. Das Programm wird somit sofort beendet, vorher wird zur Klarheit eine entsprechende Ausgabe in die Konsole geschrieben.
+
+\subsection{Menüpunkt 6: \code{Alle Datensätze ausgeben}}
+Diesen Menüpunkt habe ich zusätzlich eingeführt, da ich es einerseits für Debugging-Zwecke, andererseits auch für den Enduser für interessant halte, alle Datensätze ansehen zu können. In diesem Fall wird die Methode \methodcall{DatensatzManager}{ausgeben} aufgerufen, welche wiederum die Methode \methodcall{DatensatzListe}{ausgeben} aufruft, welche wiederum über die Liste aller Datensätze iteriert und für jeden Datensatz die Methode \method{ausgeben} aufruft. Somit werden alle Datensätze in die Konsole geschrieben.
 
 \subsection{Ausgaben und Eingaben}
+Die Eingaben und Ausgaben dieses Programmes werden mit den Klassen \fullclass{eingabeausgabe}{Ausgabe} und \fullclass{eingabeausgabe}{Eingabe} realisiert. \class{Ausgabe} stellt im Prinzip einen Wrapper für \code{System.out} dar, \code{System.out} wird dabei als Variable gespeichert, und die entsprechenden Methoden (\method{print}, \method{printline}, \dots) werden entsprechend an \code{System.out} weitergeleitet. Mit dieser Vorgehensweise wird der Regel \glqq Nicht mehr als ein Punkt pro Zeile\grqq entsprochen.
 
-\subsection{Lesen und Schreiben der Dateien}
+Die Eingabe ist dann schon etwas komplizierter, hierfür wird ein \code{Scanner} verwendet. Er wird statisch erzeugt, und die Methoden \method{nextString} (Gibt den nächsten String zurück) und \method{nextInteger} (Gibt den nächsten Integer zurück) werden entsprechend an den \code{Scanner} weitergeleitet (Methoden \method{next} und \method{nextInt}).
+
+\subsubsection{\function{nextString}{String delimiter}}
+Darüber hinaus wird eine Methode \function{nextString}{String delimiter} bereitgestellt, welche für dieses eine Einlesen den Delimiter des \code{Scanner}, welcher bestimmt, wonach Einträge abgetrennt werden, auf den übergebenen Delimiter wechselt. Da es Probleme beim Wechseln von Delimitern mit eventuell noch im Buffer befindlichen Delimitern gibt (diese werden beim Wechseln des Delimiters nicht weiter als Delimiter betrachtet und als normale Eingabe geparst, was zu unerwünschten Eingaben führt), werden vorher und nachher ein eventuell im Buffer befindlicher Delimiter übersprungen (\methodcall{Scanner}{skip}). Dies ist ein Workaround für eine Funktion, die der \code{Scanner} eigentlich selbstverständlich bereitstellen sollte.
+
+\section{Fragen}
+Folgende Fragen habe ich mir während der Umsetzung der Aufgabenstellung beantwortet, da sie aus der Aufgabenstellung nicht klar hervorgingen:
+
+\begin{itemize}
+\item Werden bei den Feldern \attribute{Vorname, Nachname, Wohnort} mehr als ein Wort akzeptiert? - Nein
+\item Werden bei den Feldern \attribute{Titel, Text} mehr als ein Wort akzeptiert? - Ja (Letzteres ist vermutlich auch selbstverständlich)
+\item Wird bei dem Feld \attribute{Text} mehr als eine Zeile akzeptiert (Absätze im Text)? - Ja
+\item Wie gibt der Nutzer an, dass die Eingabe für das aktuelle Feld im Falle von \attribute{Titel} oder \attribute{Text} beendet ist? - Die Eingabe endet auf ein \code{';'}, danach wird mit Enter bestätigt.
+\item Muss das Format, in dem die Einträge gespeichert werden, von externen Programmen lesbar sein? - Nein. Ich dachte erst an eine Umsetzung desselben mittels JSON, aber es gibt keine Java-Interne JSON-Library.
+\item In welchem Format erfolgt die Ausgabe eines Datensatzes? - Siehe \autoref{fig:Ausgabekonvention}.
+\end{itemize}
+
+\begin{figure}[h]
+\begin{verbatim}
+Name: Peter Meier Wohnort: Düsseldorf Datum, Uhrzeit: 2.6.2016 13:37:37
+=======================================================================
+Titel: Hallo Welt!
+Ich bin ein Testeintrag!
+Über diese erste Zeile hinaus enthalte ich noch eine zweite Zeile!
+Dies ist die dritte und letzte Zeile.
+Schlagworte: Test Eintag Das ist ein Test Banane 1337 
+\end{verbatim}
+\caption{Ausgabekonvention eines Datensatzes}
+\label{fig:Ausgabekonvention}
+\end{figure}
 
 \end{document}
