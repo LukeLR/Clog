@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import eingabeausgabe.Ausgabe;
+import eingabeausgabe.Eingabe;
 import textangaben.Schlagwort;
 
 public class Schlagworte implements Serializable {
@@ -35,5 +36,16 @@ public class Schlagworte implements Serializable {
 			schlagwort.ausgeben();
 			Ausgabe.print(" ");
 		}
+	}
+
+	public static Schlagworte vonEingabeEinlesen() {
+		Ausgabe.printline("Geben Sie nun Schlagworte ein, und bestätigen Sie nach jeder einzelnen Eingabe mit Enter. Wenn Sie keine weiteren Schlagworte eingeben wollen, geben Sie das Schlagwort 'exit' ein.");
+		Schlagworte schlagworte = new Schlagworte();
+		Schlagwort schlagwort = new Schlagwort(Eingabe.naechsterString());
+		while (!schlagwort.equals(new Schlagwort("exit"))){
+			schlagworte.hinzufuegen(schlagwort);
+			schlagwort = new Schlagwort(Eingabe.naechsterString());
+		}
+		return schlagworte;
 	}
 }

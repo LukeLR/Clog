@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import eingabeausgabe.Ausgabe;
 import textangaben.Nachname;
+import textangaben.Name;
 import textangaben.Vorname;
 import textangaben.Wohnort;
 import textangaben.Zeichen;
@@ -22,7 +23,12 @@ public class NameWohnortDatumZeit implements Serializable {
 	}
 	
 	public NameWohnortDatumZeit(Vorname vorname, Nachname nachname, Wohnort wohnort, DatumZeit datumZeit) {
-		nameWohnort = new NameWohnort(vorname, nachname, wohnort);
+		nameWohnort = new NameWohnort(new Name(vorname, nachname), wohnort);
+		this.datumZeit = datumZeit;
+	}
+	
+	public NameWohnortDatumZeit(NameWohnort nameWohnort, DatumZeit datumZeit){
+		this.nameWohnort = nameWohnort;
 		this.datumZeit = datumZeit;
 	}
 
@@ -32,5 +38,11 @@ public class NameWohnortDatumZeit implements Serializable {
 		nameWohnort.unterstreichen(new Zeichen('='));
 		datumZeit.unterstreichen(new Zeichen('='));
 		Ausgabe.printline();
+	}
+	
+	public static NameWohnortDatumZeit vonEingabeEinlesen(){
+		NameWohnort nameWohnort = NameWohnort.vonEingabeEinlesen();
+		DatumZeit datumZeit = DatumZeit.vonEingabeEinlesen();
+		return new NameWohnortDatumZeit(nameWohnort, datumZeit);
 	}
 }

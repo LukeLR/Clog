@@ -3,6 +3,7 @@ package datumzeit;
 import java.io.Serializable;
 
 import eingabeausgabe.Ausgabe;
+import eingabeausgabe.Eingabe;
 import textangaben.Zeichen;
 
 public class Datum implements Serializable {
@@ -28,5 +29,15 @@ public class Datum implements Serializable {
 		tag.unterstreichen(zeichen);
 		zeichen.ausgeben();
 		monatJahr.unterstreichen(zeichen);
+	}
+	
+	public static Datum vonEingabeLesen(){
+		String datum = Eingabe.naechsterString();
+		String[] datumArray = datum.split("\\.");
+		int[] datumArrayInt = new int[datumArray.length];
+		for (int i = 0; i < datumArray.length; i++){
+			datumArrayInt[i] = Integer.valueOf(datumArray[i]);
+		}
+		return new Datum(datumArrayInt[0], datumArrayInt[1], datumArrayInt[2]);
 	}
 }

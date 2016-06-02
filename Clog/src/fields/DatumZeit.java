@@ -8,9 +8,6 @@ import eingabeausgabe.Ausgabe;
 import textangaben.Zeichen;
 
 public class DatumZeit implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 4636768504617119646L;
 	private Datum datum;
 	private Zeit zeit;
@@ -20,6 +17,11 @@ public class DatumZeit implements Serializable {
 		zeit = new Zeit(stunde, minute, sekunde);
 	}
 	
+	public DatumZeit(Datum datum, Zeit zeit) {
+		this.datum = datum;
+		this.zeit = zeit;
+	}
+
 	public void ausgeben(){
 		Ausgabe.print("Datum, Uhrzeit: ");
 		datum.ausgeben();
@@ -35,5 +37,12 @@ public class DatumZeit implements Serializable {
 		datum.unterstreichen(zeichen);
 		zeichen.ausgeben();
 		zeit.unterstreichen(zeichen);
+	}
+
+	public static DatumZeit vonEingabeEinlesen() {
+		Ausgabe.print("Datum (TT.MM.JJJJ HH:MM:SS): ");
+		Datum datum = Datum.vonEingabeLesen();
+		Zeit zeit = Zeit.vonEingabeLesen();
+		return new DatumZeit(datum, zeit);
 	}
 }

@@ -9,9 +9,6 @@ import textangaben.Vorname;
 import textangaben.Wohnort;
 
 public class NameWohnortDatumZeitTitelText implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 9087594454259948770L;
 	private NameWohnortDatumZeit nameWohnortDatumZeit;
 	private TitelText titelText;
@@ -25,9 +22,20 @@ public class NameWohnortDatumZeitTitelText implements Serializable {
 		nameWohnortDatumZeit = new NameWohnortDatumZeit(vorname, nachname, wohnort, datumZeit);
 		titelText = new TitelText(titel, text);
 	}
+	
+	public NameWohnortDatumZeitTitelText(NameWohnortDatumZeit nameWohnortDatumZeit, TitelText titelText){
+		this.nameWohnortDatumZeit = nameWohnortDatumZeit;
+		this.titelText = titelText;
+	}
 
 	public void ausgeben(){
 		nameWohnortDatumZeit.ausgeben();
 		titelText.ausgeben();
+	}
+	
+	public static NameWohnortDatumZeitTitelText vonEingabeEinlesen(){
+		NameWohnortDatumZeit nameWohnortDatumZeit = NameWohnortDatumZeit.vonEingabeEinlesen();
+		TitelText titelText = TitelText.vonEingabeEinlesen();
+		return new NameWohnortDatumZeitTitelText(nameWohnortDatumZeit, titelText);
 	}
 }

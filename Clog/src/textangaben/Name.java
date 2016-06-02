@@ -39,4 +39,10 @@ public class Name implements Serializable {
 		zeichen.ausgeben();
 		nachname.unterstreichen(zeichen);
 	}
+
+	public static Name vonEingabeEinlesen() {
+		Vorname vorname = Vorname.vonEingabeLesen();
+		Nachname nachname = Nachname.vonEingabeLesen();
+		return new Name(vorname, nachname);
+	}
 }

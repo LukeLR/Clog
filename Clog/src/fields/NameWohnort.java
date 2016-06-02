@@ -22,8 +22,8 @@ public class NameWohnort implements Serializable {
 		this.wohnort = new Wohnort(wohnort);
 	}
 	
-	public NameWohnort(Vorname vorname, Nachname nachname, Wohnort wohnort){
-		this.name = new Name(vorname, nachname);
+	public NameWohnort(Name name, Wohnort wohnort){
+		this.name = name;
 		this.wohnort = wohnort;
 	}
 	
@@ -42,5 +42,11 @@ public class NameWohnort implements Serializable {
 		}
 		name.unterstreichen(zeichen);
 		wohnort.unterstreichen(zeichen);
+	}
+	
+	public static NameWohnort vonEingabeEinlesen(){
+		Name name = Name.vonEingabeEinlesen();
+		Wohnort wohnort = Wohnort.vonEingabeEinlesen();
+		return new NameWohnort(name, wohnort);
 	}
 }

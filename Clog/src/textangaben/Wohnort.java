@@ -3,6 +3,7 @@ package textangaben;
 import java.io.Serializable;
 
 import eingabeausgabe.Ausgabe;
+import eingabeausgabe.Eingabe;
 
 public class Wohnort implements Serializable {
 	/**
@@ -23,5 +24,10 @@ public class Wohnort implements Serializable {
 		for (int i = 0; i < wohnort.length(); i++){
 			zeichen.ausgeben();
 		}
+	}
+	
+	public static Wohnort vonEingabeEinlesen(){
+		Ausgabe.print("Wohnort: ");
+		return new Wohnort(Eingabe.naechsterString());
 	}
 }

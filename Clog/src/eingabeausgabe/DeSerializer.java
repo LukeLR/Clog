@@ -13,7 +13,7 @@ public class DeSerializer<A> {
 			objectOutputStream.writeObject(anObject);
 			objectOutputStream.close();
 		} catch (Exception ex){
-			ex.printStackTrace();
+			Ausgabe.print(ex.getMessage());
 		}
 	}
 	
@@ -26,7 +26,7 @@ public class DeSerializer<A> {
 			objectInputStream.close();
 			return result;
 		} catch (Exception ex){
-			ex.printStackTrace();
+			Ausgabe.print(ex.getMessage());
 			return null;
 		}
 	}

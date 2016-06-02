@@ -3,6 +3,7 @@ package textangaben;
 import java.io.Serializable;
 
 import eingabeausgabe.Ausgabe;
+import eingabeausgabe.Eingabe;
 
 public class Titel implements Serializable {
 	/**
@@ -16,10 +17,16 @@ public class Titel implements Serializable {
 	}
 	
 	public void ausgeben(){
+		Ausgabe.print("Titel: ");
 		Ausgabe.print(titel);
 	}
 	
 	public int length(){
 		return titel.length();
+	}
+
+	public static Titel vonEingabeEinlesen() {
+		Ausgabe.print("Titel: (Beenden der Eingabe mit ';' + Enter: ");
+		return new Titel(Eingabe.naechsterString(";"));
 	}
 }

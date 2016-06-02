@@ -30,12 +30,17 @@ public class TitelText implements Serializable {
 			linie = linie + "-";
 		}
 		Ausgabe.printline(linie);*/
-		Ausgabe.print("Titel: ");
 		titel.ausgeben();
 		Ausgabe.printline("");
 		//Ausgabe.printline(linie);
 		text.ausgeben();
 		Ausgabe.printline();
 		//Ausgabe.printline(linie);
+	}
+	
+	public static TitelText vonEingabeEinlesen(){
+		Titel titel = Titel.vonEingabeEinlesen();
+		Text text = Text.vonEingabeEinlesen();
+		return new TitelText(titel, text);
 	}
 }

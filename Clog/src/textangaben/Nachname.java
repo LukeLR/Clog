@@ -3,6 +3,7 @@ package textangaben;
 import java.io.Serializable;
 
 import eingabeausgabe.Ausgabe;
+import eingabeausgabe.Eingabe;
 
 public class Nachname implements Serializable {
 	/**
@@ -23,5 +24,10 @@ public class Nachname implements Serializable {
 		for (int i = 0; i < nachname.length(); i++){
 			zeichen.ausgeben();
 		}
+	}
+	
+	public static Nachname vonEingabeLesen(){
+		Ausgabe.print("Nachname: ");
+		return new Nachname(Eingabe.naechsterString());
 	}
 }

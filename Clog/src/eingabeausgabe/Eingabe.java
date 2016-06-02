@@ -20,6 +20,7 @@ public class Eingabe {
 //	}
 	
 	public static String naechsterString(String delimiter){
+		scanner.skip("\n");
 		scanner.useDelimiter(delimiter);
 		String eingabe = scanner.next();
 		scanner.reset();
