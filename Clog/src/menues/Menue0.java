@@ -18,6 +18,7 @@ public class Menue0 {
 	}
 	
 	public static void menue(){
+		Ausgabe.printline("Hauptmenü:");
 		Ausgabe.printline(hauptmenue);
 		switch(Eingabe.naechsterString()){
 		case "1": Menue1.menue(); break;
@@ -25,7 +26,7 @@ public class Menue0 {
 		case "3": Menue3.menue(); break;
 		case "4": Menue4.menue(); break;
 		case "5": Menue5.menue(); break;
-		default: break;
+		default: Ausgabe.printline("Bitte machen Sie eine korrekte Eingabe!"); break;
 		}
 	}
 }

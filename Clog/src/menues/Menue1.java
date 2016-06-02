@@ -28,7 +28,7 @@ public class Menue1 {
 		Titel titel;
 		Text text;
 		Schlagworte schlagworte;
-		Ausgabe.printline("Sie wollen einen neuen Eintrag erzeugen. Bestätigen Sie jeweils mit Enter.");
+		Ausgabe.printline("Sie wollen einen neuen Eintrag erzeugen. Bestï¿½tigen Sie jeweils mit Enter.");
 		Ausgabe.print("Vorname: ");
 		vorname = new Vorname(Eingabe.naechsterString());
 		Ausgabe.print("Nachname: ");
@@ -51,8 +51,8 @@ public class Menue1 {
 		datumZeit = new DatumZeit((int)datumArrayInt[0], datumArrayInt[1], (int)datumArrayInt[2], (int)zeitArrayInt[0], (int)zeitArrayInt[1], (int)zeitArrayInt[2]);
 		Ausgabe.print("Titel: ");
 		titel = new Titel(Eingabe.naechsterString());
-		Ausgabe.print("Text: ");
-		text = new Text(Eingabe.naechsterString());
+		Ausgabe.print("Text (Beenden der Eingabe mit ';' + Enter): ");
+		text = new Text(Eingabe.naechsterString(";"));
 		Ausgabe.printline();
 		Ausgabe.printline("Geben Sie nun Schlagworte ein, und bestÃ¤tigen Sie nach jeder einzelnen Eingabe mit Enter. Wenn Sie keine weiteren Schlagworte eingeben wollen, geben Sie das Schlagwort 'exit' ein.");
 		schlagworte = new Schlagworte();
