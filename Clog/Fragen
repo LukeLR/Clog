@@ -1,0 +1,5 @@
+- In welchem Format soll ein Datum eingegeben werden? - TT.MM.JJJJ HH:MM:SS
+- Sind Vorname, Nachname, Wohnort Eingaben, die mehr als ein Wort beinhalten können? - Nein
+- Sind Titel und Text Eingaben, die mehr als ein Wort beinhalten können? - Ja
+- Mit welchem Zeichen wird die Eingabe von mehrwortigen (und mehrzeiligen) Texten beendet? - ';'
+- In welchem Format erfolgt die Ausgaben?
