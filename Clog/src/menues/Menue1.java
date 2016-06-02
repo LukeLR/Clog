@@ -17,7 +17,7 @@ import textangaben.Text;
 
 public class Menue1 {
 	public static void menue(){
-		Ausgabe.printline("Sie wollen einen neuen Eintrag erzeugen. Best�tigen Sie jeweils mit Enter.");
+		Ausgabe.printline("Sie wollen einen neuen Eintrag erzeugen. Bestätigen Sie jeweils mit Enter.");
 		Datensatz datensatz = Datensatz.vonEingabeEinlesen();
 		DatensatzManager.datensatzHinzufuegen(datensatz);
 		Ausgabe.print("Datensatz hinzugefügt.");
