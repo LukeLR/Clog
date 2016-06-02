@@ -49,8 +49,8 @@ public class Menue1 {
 			zeitArrayInt[i] = Integer.valueOf(zeitArray[i]);
 		}
 		datumZeit = new DatumZeit((int)datumArrayInt[0], datumArrayInt[1], (int)datumArrayInt[2], (int)zeitArrayInt[0], (int)zeitArrayInt[1], (int)zeitArrayInt[2]);
-		Ausgabe.print("Titel: ");
-		titel = new Titel(Eingabe.naechsterString());
+		Ausgabe.print("Titel: (Beenden der Eingabe mit ';' + Enter: ");
+		titel = new Titel(Eingabe.naechsterString(";"));
 		Ausgabe.print("Text (Beenden der Eingabe mit ';' + Enter): ");
 		text = new Text(Eingabe.naechsterString(";"));
 		Ausgabe.printline();
