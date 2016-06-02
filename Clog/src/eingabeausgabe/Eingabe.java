@@ -7,18 +7,6 @@ public class Eingabe {
 	private static Scanner scanner = new Scanner(System.in);
 	private static Pattern defaultDelimiter;
 	
-	public static void init(){
-		defaultDelimiter = scanner.delimiter();
-	}
-	
-//	public static void setDelimiter(String delimiter){
-//		scanner.useDelimiter(delimiter);
-//	}
-//	
-//	public static void resetDelimiter(){
-//		scanner.useDelimiter(defaultDelimiter);
-//	}
-	
 	public static String naechsterString(String delimiter){
 		scanner.skip("\n");
 		scanner.useDelimiter(delimiter);
