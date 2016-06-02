@@ -1,5 +1,8 @@
 # Clog
-Console Logger, an Exercise for practical programming at HHU university
+Console Logger, an Exercise for practical programming at Heinrich-Heine-University, Duesseldorf, Germany
+
+## Finalized
+The project resched it's final state, since the exercise is done. Still, any requests will be answered, e.g. in the issues-pane :wink:
 
 ## Aim
 This is not a "real" coding project, it's an exercise. Aim is to code a console logger application, that gives the user an interactive menu. It should be able to file log entries with the following fields:
